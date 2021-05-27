@@ -1,0 +1,13 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	controllerName="org.ubb.books.controller.App"
+	id="inputdialog">
+	<Dialog title="{i18n>DeleteTitle}" id="DeleteDialog">
+		<buttons>
+	    	<Button text="{i18n>Cancel}" press="onDeleteCancelPress" />
+	    	<Button text="{i18n>Save}" press="onDeleteSavePress" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,116 @@
+<mvc:View
+	controllerName="org.ubb.books.controller.App"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+   		<html:style>
+			.customOrange {
+			  color: #ff9933;
+			}
+
+			.customRed {
+			  color: #ff0000;
+			}
+
+			.customGreen {
+			  color: #33cc33;
+			}
+
+   		</html:style>
+	<Shell>
+		<App>
+			<pages>
+				<Page title="{i18n>homePageTitle}">
+					<content>
+						<Table id="idBooksTable"
+							items="{
+								path: '/Books'
+							}"
+							growing="true"
+							growingThreshold="10">
+							<headerToolbar>
+								<Toolbar>
+								<!-- Search filters -->
+								<content>
+									<Input id="inputISBN" width="20%" placeholder="ISBN"/>
+									<Input id="inputTitle" width="20%" placeholder="{i18n>Title}"/>
+									<Input id="inputAuthor" width="20%" placeholder="{i18n>Author}"/>
+									<DatePicker id="inputDateStart"   width="20%" placeholder="{i18n>FromDate}"/>
+									<DatePicker id="inputDateEnd"   width="20%" placeholder="{i18n>UntilDate}"/>
+									<Input id="inputLanguage" width="20%" placeholder="{i18n>Language}"/>
+									<Button 
+										text="{i18n>Filter}"
+										press="onSearchButtonPressed"
+										enabled="true"
+									/>
+									<Button 
+										press="onSortButtonPressed" 
+										text="{i18n>Sort}"
+										icon="sap-icon://drop-down-list" 
+									/>
+								</content>
+
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column>
+									<Text text="{i18n>Title}" />
+								</Column>
+								<Column>
+									<Text text="{i18n>Author}" />
+								</Column>
+								<Column>
+									<Text text="{i18n>PublishedOn}" />
+								</Column>
+								<Column>
+									<Text text="{i18n>Language}" />
+								</Column>
+        					 	<Column>
+									<Text text="{i18n>Available}" />
+								</Column>
+								<Column>
+									<Text text = "{i18n>Options}" />
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem >
+									<cells>
+										<ObjectIdentifier
+											title="{Title}"
+											text="{Isbn}"/>
+										<Text text="{Author}" />
+										<Text text="{ 
+												path: 'PublishDate',
+												type: 'sap.ui.model.type.Date'
+        					       			}" 
+										/>
+										<Text text="{Language}" />
+										<ObjectNumber
+											number="{ path: 'NrAvBooks', formatter: 'myFormatter.formatColor' }"
+										/>
+										<MenuButton text="">
+											<menu>
+												<Menu>
+													<MenuItem text="Update" icon="sap-icon://edit" press="onOpenUpdateFragment"/>
+													<MenuItem text="Delete" icon="sap-icon://delete" press="onDeleteDialogPress" />
+													<MenuItem text="Log" icon="sap-icon://history" press="onHistoryDialogPress" />
+													<MenuItem text="Cancel" press="onCancelPress" />
+												</Menu>
+											</menu>
+										</MenuButton>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+						<Panel>
+							<Button width='50%' text="{i18n>InsertBook}" press="onInsertBookPress"/>
+							<Button width='50%' text="{i18n>ViewCheckouts}" press="onViewCheckoutsPress"/>
+						</Panel>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
+	

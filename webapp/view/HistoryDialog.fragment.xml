@@ -1,0 +1,33 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	controllerName="org.ubb.books.controller.App"
+	id="inputdialog">
+	<Dialog title="{Title}" id="HistoryDialog">
+	  <content>
+	   <f:SimpleForm id="SimpleFormDisplay354"
+			minWidth="1024"
+			maxContainerCols="2"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="{Isbn}"
+			labelSpanL="5"
+			labelSpanM="5">
+			<f:content>
+				<Label text="{i18n>CreatedOn}" />
+				<Text id="createdon" text="{CreatedOn}" />
+				<Label text="{i18n>CreatedBy}" />
+				<Text id="createdby" text="{CreatedBy}" />
+				<Label text="{i18n>ChangedOn}" />
+				<Text id="changedon" text="{ChangedOn}" />
+				<Label text="{i18n>ChangedBy}" />
+				<Text id="changedby" text="{ChangedBy}"/>
+			</f:content>
+		</f:SimpleForm>
+	  </content>
+		<buttons>
+	    	<Button text="Cancel" press="onHistoryCancelPress" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

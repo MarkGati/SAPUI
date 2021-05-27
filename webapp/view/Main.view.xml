@@ -1,0 +1,28 @@
+<mvc:View
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	height="100%"
+	controllerName="org.ubb.books.controller.Main">
+<Shell>
+		<App id = "app">
+			<pages>
+                <Page
+                	title="{i18n>Library}"
+                	class="sapUiContentPadding" >
+                	<customHeader>
+                	</customHeader>
+                	<subHeader>
+                		<Toolbar>
+                		</Toolbar>
+                	</subHeader>
+                	<footer>
+                		<Toolbar>
+                			<Button width="100%" type="Emphasized" text="{i18n>LogIn}" press="onPress" />
+                		</Toolbar>
+                	</footer>
+                </Page>
+			</pages>
+		</App>
+	</Shell>
+	</mvc:View>

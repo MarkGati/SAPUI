@@ -1,0 +1,110 @@
+{
+    "_version": "1.12.0",
+    "sap.app": {
+      "id": "org.ubb.books",
+      "type": "application",
+      "i18n": "i18n/i18n.properties",
+      "title": "{{appTitle}}",
+      "description": "{{appDescription}}",
+      "applicationVersion": {
+        "version": "1.0.0"
+      },
+      "dataSources": {
+        "booksService": {
+          "uri": "/sap/opu/odata/SAP/Z801_BOOKS_MAGA_SRV/",
+          "type": "OData",
+          "settings": {
+            "odataVersion": "2.0"
+          }
+        }
+      }
+    },
+    "sap.ui": {
+      "technology": "UI5",
+      "deviceTypes": {
+          "desktop": true,
+          "tablet": true,
+          "phone": true
+      }
+    },
+    "sap.ui5": {
+      "rootView": {
+          "viewName": "org.ubb.books.view.Main",
+          "type": "XML",
+          "async": true,
+          "id": "app"
+      },
+      "dependencies": {
+        "minUI5Version": "1.60",
+        "libs": {
+          "sap.m": {},
+          "sap.ui.table": {}
+        }
+      },
+      "models": {
+        "i18n": {
+          "type": "sap.ui.model.resource.ResourceModel",
+          "settings": {
+            "bundleName": "org.ubb.books.i18n.i18n"
+          }
+        },
+        "": {
+            "dataSource": "booksService",
+            "settings": {
+              "metadataUrlParams": {
+                "sap-documentation": "heading"
+              },
+              "defaultBindingMode": "TwoWay"
+            }
+          },
+        "checkoutsService": {
+            "dataSource": "checkoutsService",
+            "settings": {
+                "metadataUrlParams": {
+                    "sap-documentation": "heading"
+                }
+            }
+        }
+      },
+      "routing": {
+        "config": {
+          "routerClass": "sap.m.routing.Router",
+          "viewType": "XML",
+          "viewPath": "org.ubb.books.view",
+          "controlId": "main",
+          "targetAggregation": "pages",
+          "transition": "slide"
+        },
+        "routes": [{
+          "pattern": "",
+          "name": "main",
+          "view": "main",
+          "targetAggregation": "pages",
+          "controlId":"main"
+        },
+        {
+          "pattern": "App",
+          "name": "app",
+          "view": "app",
+          "targetAggregation": "pages",
+          "controlId":"app"
+        },
+        {
+          "pattern": "Checkout",
+          "name": "checkout",
+          "view": "checkout",
+          "targetAggregation": "pages",
+          "controlId":"app"
+        }
+      ],
+      "targets": {
+        "app": {
+          "viewName": "App"
+        },
+        "checkout": {
+          "viewName": "Checkout"
+        }
+      }
+    }
+  }
+}

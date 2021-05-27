@@ -1,0 +1,40 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	controllerName="org.ubb.books.controller.App"
+	id="inputdialog">
+	<Dialog title="{i18n>InsertData}" id="InsertBookDialog">
+	  <content>
+	   <f:SimpleForm id="SimpleFormDisplay354"
+			minWidth="1024"
+			maxContainerCols="2"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="{i18n>Details}"
+			labelSpanL="5"
+			labelSpanM="5">
+			<f:content>
+				<Label text="ISBN" />
+				<Input id="isbn" />
+				<Label text="{i18n>Title}" />
+				<Input id="title" />
+				<Label text="{i18n>Author}" />
+				<Input id="author" />
+				<Label text="{i18n>PublishedOn}" />
+				<Input id="publishdate"/>
+                <Label text="{i18n>Language}" />
+				<Input id="language" />
+                <Label text="{i18n>Available}" />
+				<Input id="nravbooks" />
+				<Label text="{i18n>Total}" />
+				<Input id="nrbooks"/>
+			</f:content>
+		</f:SimpleForm>
+	  </content>
+		<buttons>
+	    	<Button text="{i18n>Save}" press="onInsertBookSavePress" />
+	    	<Button text="{i18n>Cancel}" press="onInsertBookCancelPress" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

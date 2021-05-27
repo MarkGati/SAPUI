@@ -1,0 +1,44 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	controllerName="org.ubb.books.controller.App"
+	id="inputdialog">
+	<Dialog title="Update Data" id="UpdateBookDialog">
+	  <content>
+	   <f:SimpleForm id="SimpleFormDisplay354"
+			minWidth="1024"
+			maxContainerCols="2"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="Details"
+			labelSpanL="5"
+			labelSpanM="5">
+			<f:content>
+				<Label text="ISBN" />
+				<Input id="isbn" value="{Isbn}" />
+				<Label text="{i18n>Title}" />
+				<Input id="title" value="{Title}" />
+				<Label text="{i18n>Author}" />
+				<Input id="author" value="{Author}" />
+				<Label text="{i18n>PublishedOn}" />
+				<Input id="published" value="{ 
+					path: 'PublishDate',
+					type: 'sap.ui.model.type.Date',
+					formatOptions: { pattern: 'dd.MM.yyyy', UTC: false }
+        		}"/>
+                <Label text="{i18n>Language}" />
+				<Input id="language" value="{Language}" />
+                <Label text="{i18n>Available}" />
+				<Input id="nravbooks" value="{NrAvBooks}" />
+				<Label text="{i18n>Total}" />
+				<Input id="nrbooks" value="{NrBooks}" />
+			</f:content>
+		</f:SimpleForm>
+	  </content>
+		<buttons>
+	    	<Button text="{i18n>Save}" press="onSaveUpdatePress" />
+	    	<Button text="{i18n>Cancel}" press="onUpdateBookCancelPress" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>
